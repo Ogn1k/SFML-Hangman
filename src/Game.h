@@ -17,7 +17,7 @@ class Game
 	Clock deltaTimeClock;
 	float deltaTime;
 
-	Scene *a, *b;
+	Scene *a, *b, *c;
 
 
 	void initWin();

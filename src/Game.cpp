@@ -5,7 +5,7 @@ void Game::initWin()
 
 	std::ifstream ifs("config.ini");
 
-	std::string title = "clicker2";
+	std::string title = "Hangman";
 	VideoMode windowSize(768, 768);
 	unsigned framerateLimit = 120;
 	bool vertSinc = false;
@@ -30,6 +30,7 @@ void Game::initScenes()
 {
 	a = new lvl0(&sceneData);
 	b = new lvl1(&sceneData);
+	c = new lvl2(&sceneData);
 	scenes.push_back(a);
 	//scenes.push(new lvl2(window, &scenes));
 
@@ -70,6 +71,9 @@ Game::~Game()
 
 void Game::endApp()
 {
+	window->close();
+
+	Game::~Game();
 	//saving... i guess?
 }
 
@@ -77,6 +81,21 @@ void Game::endApp()
 
 void Game::changeScene(int lvl, ScenePublicData* scene_data)
 {
+	/*switch (lvl)
+	{
+	case 0:
+		
+		break;
+	case 1:
+		
+		break;
+	case 2:
+		
+		break;
+	default:
+		
+		break;
+	}*/
 	if (lvl == 0)
 	{
 		std::cout << "a" << std::endl;
@@ -86,6 +105,11 @@ void Game::changeScene(int lvl, ScenePublicData* scene_data)
 	{
 		std::cout << "b" << std::endl;
 		scenes.back() = new lvl1(scene_data);
+	}
+	else if (lvl == 2)
+	{
+		std::cout << "c" << std::endl;
+		scenes.back() = new lvl2(scene_data);
 	}
 	else
 	{
@@ -128,7 +152,7 @@ void Game::update()
 		{
 			scenes.back()->endScene();
 			delete scenes.back();
-			scenes.back();
+			//scenes.back();
 		}
 	}
 	else

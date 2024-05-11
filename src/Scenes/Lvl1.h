@@ -1,5 +1,6 @@
 #pragma once
 #include "Lvl0.h"
+#include "Lvl2.h"
 #include "Game.h"
 
 using namespace sf;
@@ -14,12 +15,15 @@ protected:
 	int wordsCount = sceneData->difficulty;
 	double charBoxOffset = windowSize.width / 3;
 
-	std::vector<sf::String> wordsEasy = {"балл", "знак", "банк", "омар"};
-	std::vector<sf::String> wordsNormal = { "галера", "кафель", "фильтр", "спичка"};
-	std::vector<sf::String> wordsHard = { "кондитер", "подлодка", "синоптик", "характер" };
+	std::vector<sf::String> wordsEasy = {"Р±Р°Р»Р»", "Р·РЅР°Рє", "Р±Р°РЅРє", "РѕРјР°СЂ"};
+	std::vector<sf::String> wordsNormal = { "РіР°Р»РµСЂР°", "РєР°С„РµР»СЊ", "С„РёР»СЊС‚СЂ", "СЃРїРёС‡РєР°"};
+	std::vector<sf::String> wordsHard = { "РєРѕРЅРґРёС‚РµСЂ", "РїРѕРґР»РѕРґРєР°", "СЃРёРЅРѕРїС‚РёРє", "С…Р°СЂР°РєС‚РµСЂ" };
 
 	sf::String wordCur = "";
-	sf::String wordOnScreen = "";
+	sf::String wordOnScreen = "        ";
+	std::string str = "        ";
+
+	bool isGameEnd = false;
 
 	Text2 wordCurGraph = Text2(wordOnScreen, 56, Color::Black);
 
@@ -33,9 +37,11 @@ protected:
 	std::vector<Sprite2> hangmanSprites;
 	std::vector<Texture> hangmanTextures;
 	std::vector<Button> keyboardButtons;
-	std::wstring alphabet = L"йцукенгшщзхъфывапролджэячсмитьбю";
+	std::wstring alphabet = L"Р№С†СѓРєРµРЅРіС€С‰Р·С…СЉС„С‹РІР°РїСЂРѕР»РґР¶СЌСЏС‡СЃРјРёС‚СЊР±СЋ";
 
 	Text2 title = Text2("hangman", 48, Color::Black);
+
+	Button endGameB = Button(windowSize.width / 2, windowSize.height / 1.3, 240, 50, L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ", "", Color::White, Color::Yellow, Color::Green);
 
 public:
 	lvl1(ScenePublicData* sceneData);

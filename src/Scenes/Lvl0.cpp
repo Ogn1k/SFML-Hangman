@@ -1,4 +1,4 @@
-#include "lvl0.h"
+#include "Lvl0.hpp"
 
 lvl0::lvl0(ScenePublicData* sceneData)
 	: Scene(sceneData)
@@ -89,13 +89,13 @@ void lvl0::update(const float& deltaTime)
 	switch (sceneData->difficulty)
 	{
 	case EASY:
-		difficultyText.setString(L"Легкая сложность");
+		difficultyText.setString(L"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 		break;
 	case NORMAL:
-		difficultyText.setString(L"Средняя сложность");
+		difficultyText.setString(L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 		break;
 	case HARD:
-		difficultyText.setString(L"ХАРДКООООР");
+		difficultyText.setString(L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 		break;
 	}
 }

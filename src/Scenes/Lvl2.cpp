@@ -1,4 +1,4 @@
-#include "Lvl2.h"
+#include "Lvl2.hpp"
 
 lvl2::lvl2(ScenePublicData* sceneData)
 	: Scene(sceneData)
@@ -7,13 +7,13 @@ lvl2::lvl2(ScenePublicData* sceneData)
 	switch (sceneData->gameState)
 	{
 	case WIN:
-		gameStateGraph.setString(L"Поздравляю! Победа ;D");
+		gameStateGraph.setString(L"����������! ������ ;D");
 		break;
 	case LOSE:
-		gameStateGraph.setString(L"Попытайся еще :'(");
+		gameStateGraph.setString(L"��������� ��� :'(");
 		break;
 	case SECRET:
-		gameStateGraph.setString(L"1 2 3 проверка микрофона");
+		gameStateGraph.setString(L"1 2 3 �������� ���������");
 		break;
 	}
 

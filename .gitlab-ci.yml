@@ -1,0 +1,37 @@
+#default:
+#  image: registry.csc.sibsutis.ru/trpo/ci
+
+.install:
+  image: ubuntu:22.04
+  stage: install
+  before_script:
+    - apt-get update && apt-get install -y clang-format git-all cmake ninja-build googletest
+
+.check-codestyle:
+  script:
+    - echo "Check codestyle..."
+    - git ls-files *.cpp *.hpp | xargs clang-format -i --verbose && git diff --exit-code
+    - echo "Codestyle is fine."
+
+.build-script:
+  script:
+    - echo "Compiling the code..."
+    - mkdir build
+    - cd build
+    - cmake .. -G=Ninja
+    - ninja
+    - echo "Compile complete."
+
+stages:
+  - install
+  - check-codestyle
+  - build
+  - test
+
+checkstyle:
+  stage: check-codestyle
+  extends: .check-codestyle
+
+build:
+  stage: build
+  extends: .build-script

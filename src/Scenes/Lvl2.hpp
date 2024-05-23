@@ -1,5 +1,5 @@
 #pragma once
-#include "Scenes/Lvl1.h"
+#include "Scenes/Lvl1.hpp"
 
 class lvl2 : public Scene
 {
@@ -12,7 +12,7 @@ protected:
 
 	RectangleShape background = RectangleShape(Vector2f(windowSize.width, windowSize.height));
 
-	std::wstring exitS = L"Выйти из игры", playAgainS = L"Сыграть еще раз";
+	std::wstring exitS = L"пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ", playAgainS = L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ";
 	Button exitB = Button(windowSize.width / 2, windowSize.height / 1.3, 200, 50, exitS, "", Color::White, Color::Yellow, Color::Green);
 	Button playAgainB = Button(windowSize.width / 2, windowSize.height / 1.1, 200, 50, playAgainS, "", Color::White, Color::Yellow, Color::Green);
 

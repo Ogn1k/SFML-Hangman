@@ -9,10 +9,6 @@ set(CMAKE_EXE_LINKER_FLAGS -fuse-ld=lld)
 
 #set (SOURCE_FILES main.cpp)
 
-if(DOCS)
-    add_subdirectory(docs)
-endif()
-
 find_package(sfml-graphics)
 find_package(sfml-window)
 find_package(sfml-system)
